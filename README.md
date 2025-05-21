@@ -1,12 +1,6 @@
-### Ejercicio Practico pre Parcial
+### Ejercicio
 
-## Crear Fork del repositorio
-## Realizar clone del mismo
-## Instalar las dependencias
-## Agregar Variables de entorno
-
-## 1- Crear model de Producto
-# `{ nombre, precio, categoria, stock}`
-## 2- Crear endpoints para Productos para obtener todos los productos, crear producto,Obtener por ID, Y obtener por nombre
+### Crear un modelo de Posts, donde tenga Titulo, descripcion, created_at y imagen
+## el ruteo, controlador, 
 
 
