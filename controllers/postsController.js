@@ -30,8 +30,6 @@ export const crearPost = async (req, res) => {
             .getPublicUrl(filePath);
 
         imagenUrl = PublicDataUrl.publicUrl;
-
-        console.log("imagenUrL: ", imagenUrl);
         
     }
 
