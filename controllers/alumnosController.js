@@ -80,46 +80,6 @@ export const CrearAlumno = async (req, res) => {
 }
 
 
-export const login = async (req, res) =>{
-    const {email, password} = req.body;
-
-    if(!email || !password){
-        return res.status(400).json({ error: 'Faltan credenciales'})
-    }
-
-    try {
-
-        const alumno = await Alumno.findOne({email});
-
-        if(!alumno){
-            return res.status(404).json({ error: 'Alumno no encontrado'})
-        }
-
-        const match = await bcrypt.compare(password, alumno.password)
-
-        if(!match){
-            return res.status(401).json({ error: 'Password incorrecta'})
-        }
-
-
-        // JWT.SIGN
-        // Primer argumento, lo que vas a encriptar
-        // Segundo argumento, la llave para encriptar / desencriptar
-        // Tercer argumento, el tiempo que va a durar ese token
-        const datosEncriptados = { id: alumno._id, email: alumno.email, rol: 'admin'}
-        const JWT_KEY = process.env.JWT_SECRET
-        const token = jwt.sign(
-            datosEncriptados,
-            JWT_KEY,
-            { expiresIn: '1h'}
-        )
-
-        res.json({ accessToken: token})
-        
-    } catch (error) {
-        res.status(500).json({error: 'Error al hacer login'})
-    }
-}
 
 export const actualizarProfilePic = async (req, res) => {
     const { usuario } = req;

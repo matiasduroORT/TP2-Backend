@@ -4,6 +4,8 @@ export const protegerRuta = (req, res, next) => {
 
     
 
+    console.log("Iniciando Proteger");
+    
     const authHeader = req.headers.authorization
    
 
@@ -18,6 +20,8 @@ export const protegerRuta = (req, res, next) => {
 
 
     // 
+    console.log("Iniciando Proteger 2");
+
     try {
         
         const decodificado = jwt.verify(token, process.env.JWT_SECRET)
